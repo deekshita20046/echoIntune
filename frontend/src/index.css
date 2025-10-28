@@ -1,0 +1,520 @@
+/* Satoshi Font - via CDN */
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap');
+
+/* Google Fonts - Ocean Breeze Script Typography */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Indie+Flower&family=Work+Sans:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Whimsical Coastal Calm - Seafoam Sunset Palette */
+  
+  /* Primary Ocean Blues */
+  --seafoam-mist: #EAF6F8;      /* Backgrounds, large sections */
+  --turquoise-tide: #9ADCE0;    /* Secondary fills, icons */
+  --aqua-soft: #73C8D3;         /* Buttons, wave dividers */
+  --ocean-deep: #2B5E7B;        /* Text accents, headers */
+  --ocean-midnight: #1E3D52;    /* CTAs, hover states */
+  
+  /* Warm Neutrals (Shells & Sand) */
+  --shell-white: #FFF9F2;       /* Cards, nav, modals */
+  --driftwood-beige: #E8D9C6;   /* Background texture */
+  --sea-pebble: #C4B7A6;        /* Divider lines, text-muted */
+  
+  /* Sunset Accents */
+  --blush-coral: #F5B7B1;       /* Heart icons, tooltips, highlights */
+  --peach-glow: #FFD3B5;        /* Button hover, gradients */
+  --lavender-shell: #D6C7F5;    /* Animated gradients, badges */
+  
+  /* Legacy ocean mapping for compatibility */
+  --ocean-50: #EAF6F8;
+  --ocean-100: #EAF6F8;
+  --ocean-200: #9ADCE0;
+  --ocean-300: #73C8D3;
+  --ocean-400: #73C8D3;
+  --ocean-500: #2B5E7B;
+  --ocean-600: #2B5E7B;
+  --ocean-800: #1E3D52;
+  
+  --sand-100: #FFF9F2;
+  --sand-300: #FFD3B5;
+  --shell-500: #D6C7F5;
+  --blush-300: #F5B7B1;
+  
+  --text-900: #1E3D52;
+  --text-800: #2B5E7B;
+  --muted-500: #C4B7A6;
+  --bg-light: #EAF6F8;
+  
+  /* Primary color assignments */
+  --primary-bg: #B8F3F9;        /* Light Turquoise */
+  --primary-light: #FFF9F2;     /* Shell White */
+  --secondary: #2B5E7B;         /* Ocean Deep */
+  --secondary-light: #a9f9ff;   /* Soft Aqua */
+}
+
+@layer base {
+  * {
+    @apply border-turquoise-tide/30;
+  }
+  
+  body {
+    background: var(--primary-bg);  /* Seafoam Mist */
+    color: var(--secondary);
+    font-family: 'Satoshi', system-ui, sans-serif;
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 700;
+    color: var(--ocean-deep);
+  }
+
+  /* PRIMARY CURSIVE - Dancing Script (USE EVERYWHERE except journal) */
+  .font-cursive {
+    font-family: 'Dancing Script', cursive;
+  }
+  
+  /* HANDWRITING - Dancing Script (consistent with cursive) */
+  .font-handwriting {
+    font-family: 'Dancing Script', cursive;
+  }
+  
+  /* JOURNAL ONLY - Indie Flower (ONLY for journal entries) */
+  .font-journal {
+    font-family: 'Indie Flower', cursive;
+  }
+  
+  /* DETAILS - Work Sans */
+  .font-details {
+    font-family: 'Work Sans', system-ui, sans-serif;
+  }
+
+  /* Custom scrollbar - Coastal Calm */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--shell-white);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--aqua-soft);
+    border-radius: 10px;
+    border: 2px solid var(--shell-white);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--turquoise-tide);
+  }
+  
+  /* Custom scrollbar for specific elements */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 249, 242, 0.5);
+    border-radius: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(115, 200, 211, 0.6);
+    border-radius: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--aqua-soft);
+  }
+}
+
+@layer components {
+  /* Handwriting journal styles - Indie Flower */
+  .journal-entry {
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.375rem;
+    line-height: 2rem;
+    background-image: repeating-linear-gradient(
+      transparent,
+      transparent 1.75rem,
+      rgba(115, 200, 211, 0.3) 1.75rem,
+      rgba(115, 200, 211, 0.3) calc(1.75rem + 1px),
+      transparent calc(1.75rem + 1px)
+    );
+    background-position: 0 3rem;
+    padding: 0.75rem 1rem;
+    border-radius: 1.5rem;
+  }
+  
+  .journal-entry-title {
+    font-family: 'Indie Flower', cursive;
+  }
+
+  /* Glassmorphism - Coastal Calm */
+  .glass {
+    backdrop-filter: blur(16px);
+    background: rgba(255, 249, 242, 0.7);
+    border: 1px solid rgba(115, 200, 211, 0.2);
+    box-shadow: 0 8px 32px rgba(43, 94, 123, 0.08);
+    border-radius: 1.5rem;
+  }
+
+/* Coastal gradient button - matching Landing page "Dive In" style */
+.btn-gradient {
+  position: relative;
+  overflow: hidden;
+  padding: 12px 24px;
+  border-radius: 9999px; /* Full pill shape */
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, #73C8D3 0%, #2B5E7B 100%);
+  box-shadow: 0 10px 25px rgba(43, 94, 123, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Animated gradient overlay */
+.btn-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: translateX(-100%);
+  transition: transform 1s ease;
+}
+
+.btn-gradient:hover::before {
+  transform: translateX(100%);
+}
+
+/* Ripple effect container */
+.btn-gradient::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.btn-gradient:hover::after {
+  opacity: 1;
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+}
+
+.btn-gradient:hover {
+  box-shadow: 0 20px 40px rgba(43, 94, 123, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-gradient:active {
+  transform: translateY(0);
+}
+
+  /* Coastal card styles - Floating with gentle shadows and rotation */
+  .card {
+    background: var(--shell-white);
+    border: 1px solid rgba(154, 220, 224, 0.2);
+    border-radius: 1.5rem;
+    padding: 24px;
+    box-shadow: 0 8px 32px rgba(43, 94, 123, 0.08), 0 0 0 rgba(115, 200, 211, 0.3); /* Turquoise tint */
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .card:hover {
+    transform: translateY(-8px) rotate(1deg); /* Lift with slight rotation */
+    box-shadow: 0 16px 48px rgba(43, 94, 123, 0.12), 0 0 30px rgba(115, 200, 211, 0.2);
+    border-color: rgba(115, 200, 211, 0.4);
+  }
+
+  /* Beach sand card variant - with warm neutral gradient */
+  .card-sand {
+    background: linear-gradient(135deg, var(--shell-white), var(--driftwood-beige));
+    border: 1px solid rgba(232, 217, 198, 0.3);
+    border-radius: 1.5rem;
+    padding: 24px;
+    box-shadow: 0 8px 32px rgba(43, 94, 123, 0.08);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  
+  .card-sand:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(232, 217, 198, 0.2);
+  }
+
+  /* Mood emoji animations - Playful wiggle */
+  .mood-icon {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+  }
+
+  .mood-icon:hover {
+    animation: wiggle 0.5s ease-in-out;
+  }
+  
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg) scale(1.1); }
+    75% { transform: rotate(10deg) scale(1.1); }
+  }
+
+  /* Coastal task checkbox */
+  .task-checkbox {
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    border: 2px solid var(--aqua-soft);
+    transition: all 0.2s cubic-bezier(0.22, 0.9, 0.36, 1);
+    cursor: pointer;
+  }
+
+  .task-checkbox:checked {
+    background: var(--turquoise-tide);
+    border-color: var(--turquoise-tide);
+  }
+
+  /* Coastal habit tracker day box */
+  .habit-day {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    border: 2px solid var(--turquoise-tide);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.22, 0.9, 0.36, 1);
+  }
+
+  .habit-day:hover {
+    border-color: var(--aqua-soft);
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(115, 200, 211, 0.2);
+  }
+
+  .habit-day.checked {
+    background: var(--turquoise-tide);
+    border-color: var(--turquoise-tide);
+    color: white;
+  }
+
+  /* Lavender shell badge */
+  .shell-badge {
+    background: var(--lavender-shell);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    font-family: 'Work Sans', system-ui, sans-serif;
+    color: var(--ocean-deep);
+    box-shadow: 0 2px 8px rgba(43, 94, 123, 0.08);
+  }
+
+  /* Wave separator - Coastal gradient */
+  .wave-separator {
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(180deg, var(--seafoam-mist), var(--turquoise-tide));
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Breathing animation */
+  .breathing {
+    animation: breathing 3s ease-in-out infinite;
+  }
+
+  @keyframes breathing {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+  }
+}
+
+@layer utilities {
+  /* Coastal text gradient - Ocean Deep to Soft Aqua */
+  .text-gradient {
+    background: linear-gradient(135deg, var(--ocean-deep), var(--aqua-soft));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Coastal animated gradient background - Wave inspired */
+  .bg-animated-gradient {
+    background: linear-gradient(-45deg, var(--seafoam-mist), var(--turquoise-tide), var(--aqua-soft), var(--shell-white));
+    background-size: 400% 400%;
+    animation: oceanGradient 15s ease infinite;
+  }
+
+  @keyframes oceanGradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Coastal wave text - Ocean Deep to Turquoise Tide */
+  .wave-text {
+    background: linear-gradient(90deg, var(--ocean-deep), var(--aqua-soft), var(--turquoise-tide));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 100%;
+    animation: waveText 3s ease-in-out infinite;
+  }
+
+  @keyframes waveText {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Brand name styling - "echo" in Dancing Script, "Intune" in Satoshi */
+  .brand-echo {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 600;
+  }
+
+  .brand-intune {
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 700;
+  }
+
+  /* Accent color gradients - same color family only */
+  .bg-ocean-gradient {
+    background: linear-gradient(135deg, var(--ocean-midnight), var(--ocean-deep), var(--aqua-soft));
+  }
+
+  .bg-warm-gradient {
+    background: linear-gradient(135deg, var(--driftwood-beige), var(--shell-white));
+  }
+
+  .bg-coral-gradient {
+    background: linear-gradient(135deg, var(--blush-coral), rgba(245, 183, 177, 0.6));
+  }
+
+  .bg-lavender-gradient {
+    background: linear-gradient(135deg, var(--lavender-shell), rgba(214, 199, 245, 0.6));
+  }
+}
+
+/* Framer motion animations */
+.page-transition {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading spinner - Coastal themed */
+.spinner {
+  border: 3px solid var(--turquoise-tide);
+  border-radius: 50%;
+  border-top: 3px solid var(--ocean-deep);
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Float animation for decorative elements */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Glitter shimmer layer - magical floating stars */
+.glitter-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+  background: transparent; /* Fully transparent - only stars visible */
+}
+
+.glitter-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  animation: glitterFloat 3s ease-in-out infinite;
+  opacity: 0;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 6px rgba(255, 223, 128, 0.4));
+}
+
+/* Star shape using clip-path */
+.glitter-dot::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+@keyframes glitterFloat {
+  0%, 100% { 
+    opacity: 0; 
+    transform: translateY(0) scale(0.4) rotate(0deg);
+  }
+  50% { 
+    opacity: 1; 
+    transform: translateY(-30px) scale(1) rotate(180deg);
+  }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .breathing,
+  .animate-float,
+  .bg-animated-gradient,
+  .wave-text,
+  .glitter-dot {
+    animation: none !important;
+  }
+}
+

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generate Echo: Intune Icons</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      text-align: center;
+    }
+    canvas {
+      border: 1px solid #ccc;
+      margin: 20px;
+    }
+    button {
+      background: linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 10px;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+    .success {
+      color: green;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎨 Echo: Intune Icon Generator</h1>
+  <p>Click the buttons below to download the app icons</p>
+
+  <div>
+    <canvas id="canvas192" width="192" height="192"></canvas>
+    <canvas id="canvas512" width="512" height="512"></canvas>
+  </div>
+
+  <div>
+    <button onclick="downloadIcon(192)">Download 192x192 Icon</button>
+    <button onclick="downloadIcon(512)">Download 512x512 Icon</button>
+    <button onclick="downloadBoth()">Download Both</button>
+  </div>
+
+  <div id="message"></div>
+
+  <div style="margin-top: 40px; text-align: left; background: #f5f5f5; padding: 20px; border-radius: 8px;">
+    <h3>📝 Instructions:</h3>
+    <ol>
+      <li>Click "Download Both" to download both icon files</li>
+      <li>Save them as:
+        <ul>
+          <li><code>icon-192.png</code> (192x192)</li>
+          <li><code>icon-512.png</code> (512x512)</li>
+        </ul>
+      </li>
+      <li>Move both files to: <code>frontend/public/</code></li>
+      <li>Refresh your app - the error should be gone! ✅</li>
+    </ol>
+  </div>
+
+  <script>
+    function drawIcon(canvas) {
+      const ctx = canvas.getContext('2d');
+      const size = canvas.width;
+
+      // Create gradient
+      const gradient = ctx.createLinearGradient(0, 0, size, size);
+      gradient.addColorStop(0, '#4F46E5');
+      gradient.addColorStop(1, '#06B6D4');
+
+      // Draw rounded rectangle
+      const radius = size / 5;
+      ctx.beginPath();
+      ctx.moveTo(radius, 0);
+      ctx.lineTo(size - radius, 0);
+      ctx.quadraticCurveTo(size, 0, size, radius);
+      ctx.lineTo(size, size - radius);
+      ctx.quadraticCurveTo(size, size, size - radius, size);
+      ctx.lineTo(radius, size);
+      ctx.quadraticCurveTo(0, size, 0, size - radius);
+      ctx.lineTo(0, radius);
+      ctx.quadraticCurveTo(0, 0, radius, 0);
+      ctx.closePath();
+      ctx.fillStyle = gradient;
+      ctx.fill();
+
+      // Draw "E" letter
+      ctx.fillStyle = 'white';
+      ctx.font = `bold ${size * 0.625}px Arial, sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('E', size / 2, size / 2);
+    }
+
+    // Draw both canvases on load
+    drawIcon(document.getElementById('canvas192'));
+    drawIcon(document.getElementById('canvas512'));
+
+    function downloadIcon(size) {
+      const canvas = document.getElementById(`canvas${size}`);
+      const link = document.createElement('a');
+      link.download = `icon-${size}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+      
+      showMessage(`✅ Downloaded icon-${size}.png`);
+    }
+
+    function downloadBoth() {
+      setTimeout(() => downloadIcon(192), 100);
+      setTimeout(() => downloadIcon(512), 300);
+      
+      showMessage('✅ Downloaded both icons! Now move them to frontend/public/');
+    }
+
+    function showMessage(text) {
+      const msg = document.getElementById('message');
+      msg.innerHTML = text;
+      msg.className = 'success';
+    }
+  </script>
+</body>
+</html>
+

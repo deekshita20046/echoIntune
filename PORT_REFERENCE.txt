@@ -1,0 +1,23 @@
+═══════════════════════════════════════════════════════════
+    🌊 echo:Intune - PORT REFERENCE
+═══════════════════════════════════════════════════════════
+
+FRONTEND (React + Vite)
+  Port: 3000
+  URL:  http://localhost:3000 ✅
+  
+BACKEND (Node.js + Express)
+  Port: 5002
+  URL:  http://localhost:5002
+  Test: http://localhost:5002/health
+
+ML SERVICE (Python + Flask) - OPTIONAL
+  Port: 5001
+  URL:  http://localhost:5001
+  Test: http://localhost:5001/health
+
+═══════════════════════════════════════════════════════════
+
+OPEN IN BROWSER: http://localhost:3000
+
+═══════════════════════════════════════════════════════════

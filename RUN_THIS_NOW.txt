@@ -1,0 +1,41 @@
+═══════════════════════════════════════════════════════════
+    🌊 echo:Intune - DO THESE 3 STEPS NOW
+═══════════════════════════════════════════════════════════
+
+STEP 1: Initialize Database
+────────────────────────────
+./setup-database.sh
+
+
+STEP 2: Start Backend (in Terminal 1)
+──────────────────────────────────────
+cd backend
+npm start
+
+
+STEP 3: Start Frontend (in Terminal 2)
+───────────────────────────────────────
+cd frontend
+npm run dev
+
+
+STEP 4: Open Browser
+────────────────────
+http://localhost:3000
+
+
+═══════════════════════════════════════════════════════════
+                    THAT'S IT!
+═══════════════════════════════════════════════════════════
+
+IF YOU GET ERRORS:
+- Read START_HERE.md for help
+- Read INITIALIZATION_GUIDE.md for detailed steps
+
+THE ONLY FILES YOU NEED:
+✅ setup-database.sh (database setup)
+✅ backend/config/init-database.sql (SQL schema)
+✅ backend/.env (your config - already set up)
+✅ frontend/.env (your config - already set up)
+
+EVERYTHING ELSE IS JUST DOCUMENTATION!

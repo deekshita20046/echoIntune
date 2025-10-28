@@ -1,0 +1,14 @@
+{
+  "name": "Echo: Intune",
+  "short_name": "Echo",
+  "description": "Smart emotionally-aware journaling and productivity platform",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#6366f1",
+  "orientation": "portrait-primary",
+  "icons": [],
+  "categories": ["productivity", "lifestyle", "health"],
+  "screenshots": []
+}
+
