@@ -1,0 +1,50 @@
+═══════════════════════════════════════════════════════════
+    🚀 FREE DEPLOYMENT CHECKLIST
+═══════════════════════════════════════════════════════════
+
+STEP 1: DATABASE (Neon.tech)
+□ Sign up at https://neon.tech
+□ Create project "echoIntune"
+□ Copy connection string
+□ Run init-database.sql in SQL Editor
+□ Database URL: postgresql://...
+
+STEP 2: BACKEND (Render.com)
+□ Sign up at https://render.com
+□ New Web Service → Connect GitHub repo
+□ Root Directory: backend
+□ Add all environment variables
+□ Deploy & get URL: https://echointune-backend.onrender.com
+
+STEP 3: FRONTEND (Vercel.com)
+□ Sign up at https://vercel.com
+□ Import echoIntune repo
+□ Root Directory: frontend
+□ Add environment variables:
+  - VITE_API_URL=https://echointune-backend.onrender.com
+□ Deploy & get URL: https://echointune.vercel.app
+
+STEP 4: UPDATE BACKEND
+□ Update FRONTEND_URL in Render to your Vercel URL
+□ Save → Auto-redeploys
+
+STEP 5: (OPTIONAL) ML SERVICE
+□ New Web Service on Render
+□ Root Directory: ml-service
+□ Python environment
+□ Add environment variables
+□ Deploy
+
+STEP 6: TEST
+□ Visit your Vercel URL
+□ Register account
+□ Create journal entry
+□ Check all features work
+
+═══════════════════════════════════════════════════════════
+
+TOTAL COST: $0 ✅
+
+Time needed: 30-45 minutes
+
+═══════════════════════════════════════════════════════════
